@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #FBF9F6;
+    color: #18181B;
+    overflow-x: hidden;
+  }
+
+  .dark body {
+    background-color: #0B0D11;
+    color: #F4F4F5;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono, .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Architectural futuristic backdrop grid */
+.cc-arch-grid {
+  background-image:
+    linear-gradient(to right, rgba(24, 24, 27, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(24, 24, 27, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.dark .cc-arch-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes cc-aura-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(24px, -18px, 0) scale(1.06);
+  }
+}
+
+@keyframes cc-aura-float-reverse {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-22px, 16px, 0) scale(1.05);
+  }
+}
+
+@keyframes cc-scanline {
+  0%, 100% {
+    transform: translate3d(0, 8px, 0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate3d(0, 164px, 0);
+    opacity: 0.95;
+  }
+}
+
+@keyframes cc-shimmer-sweep {
+  0% {
+    transform: translate3d(-120%, 0, 0) skewX(-18deg);
+  }
+  65%, 100% {
+    transform: translate3d(220%, 0, 0) skewX(-18deg);
+  }
+}
+
+@keyframes cc-sonar-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+.animate-cc-aura {
+  animation: cc-aura-float 16s ease-in-out infinite;
+}
+
+.animate-cc-aura-reverse {
+  animation: cc-aura-float-reverse 20s ease-in-out infinite;
+}
+
+.animate-cc-scanline {
+  animation: cc-scanline 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-cc-shimmer {
+  animation: cc-shimmer-sweep 6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-cc-sonar {
+  animation: cc-sonar-ring 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Custom subtle scrollbars for phone viewport and horizontal lists */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

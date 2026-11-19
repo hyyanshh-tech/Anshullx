@@ -1,0 +1,6 @@
+{
+  "name": "CampusCrave",
+  "description": "AI-powered student meal subscription platform for hostel and PG students near DBS Global University, Selakui, Dehradun. Eat fresh. Save 40%. Zero delivery fees.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
